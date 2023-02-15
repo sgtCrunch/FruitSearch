@@ -23,7 +23,7 @@ function showSuggestions(results, inputVal) {
 		suggestions.parentElement.classList.add("invisible");
 	}
 	else{
-		suggestions.parentElement.classList.remove("invisible")
+		suggestions.parentElement.classList.remove("invisible");
 	}
 	suggestions.innerHTML = "";
 	results.forEach(fruit => {
@@ -31,20 +31,20 @@ function showSuggestions(results, inputVal) {
 		li.innerHTML = fruit;
 		suggestions.append(li); 
 	});
+
 }
 
 function useSuggestion(e) {
-	console.log(e.target.tagName);
+	
 	if(e.target.tagName === "HTML" || e.target.tagName === "BODY") {
 		suggestions.parentElement.classList.add("invisible");
 	}
 	else if(e.target.parentElement.parentElement.className === "suggestions"){
 		input.value = e.target.innerText;
-		showSuggestions(search(input.value), input.value);
+		suggestions.parentElement.classList.add("invisible");
 	}
 	
 }
 
 document.addEventListener('click', useSuggestion);
 input.addEventListener('keyup', searchHandler);
-//input.addEventListener('focusout', () => {suggestions.parentElement.classList.add("invisible")});
