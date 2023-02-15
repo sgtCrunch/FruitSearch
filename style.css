@@ -39,7 +39,7 @@ input:focus{
   padding-right: 10px;
   margin-top: -15px;
   opacity: 1;
-  transition: opacity .25s ease-in;
+  transition: opacity .25s ease-in, max-height cubic-bezier(0.215, 0.610, 0.355, 1);
 
 }
 
