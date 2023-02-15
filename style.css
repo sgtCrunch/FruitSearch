@@ -29,6 +29,7 @@ input:focus{
 }
 
 .search-container .suggestions {
+  max-height: 15vw;
   width: 100%;
   overflow-y: auto;
   background-color: rgba(128, 128, 128, 0.119);
