@@ -25,7 +25,10 @@ function search(str) {
 	if(str.length === 0) return [];
 
 	return fruits.reduce((results, fruit) => {
-		if(fruit.toLowerCase().includes(str.toLowerCase())) results.push(fruit);
+		const spot = fruit.toLowerCase().search(str.toLowerCase());
+		if(spot > -1){
+			results.push([fruit, spot]);
+		} 
 		return results;
 	}, []);
 }
@@ -55,11 +58,14 @@ function showSuggestions(results, inputVal) {
 
 	results.forEach(fruit => {
 		const li = document.createElement("li");
-		li.innerHTML = fruit;
+		const boldPart = "<strong>" + fruit[0].slice(fruit[1], fruit[1]+inputVal.length) + "</strong>";
+		li.innerHTML = fruit[0].slice(0,fruit[1]) + boldPart + fruit[0].slice(fruit[1]+inputVal.length);
 		suggestions.append(li); 
 	});
 
 }
+
+
 
 /*
 	Function used to when a "click" event is triggered. It checks to see if the user clicked outside of dropdown and 
